@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Coffee - Infinite Marquee</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            dark: '#1A120B',
+                            medium: '#3C2A21',
+                            light: '#D5CEA3',
+                            cream: '#E5E5CB'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-coffee-dark min-h-screen flex flex-col items-center justify-center p-4">
+    <h1 class="text-coffee-cream font-serif text-4xl md:text-5xl mb-8 text-center">Premium Coffee Collection</h1>
+    
+    <!-- Marquee Container -->
+    <div class="marquee-container w-full max-w-6xl overflow-hidden relative">
+        <!-- Marquee Content -->
+        <div class="marquee-content flex">
+            <!-- Collection Item 1 -->
+            <div class="collection-item bg-coffee-medium rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v1">
+                <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                    <img src="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1184&q=80" alt="Coffee Campsite" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-coffee-cream font-serif text-xl mb-1">Collection V1</h3>
+                <p class="text-coffee-light font-sans text-sm text-center">Aromatic & Bold Finish</p>
+            </div>
+            
+            <!-- Collection Item 2 -->
+            <div class="collection-item bg-coffee-medium rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v2">
+                <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Office Hallway" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-coffee-cream font-serif text-xl mb-1">Collection V2</h3>
+                <p class="text-coffee-light font-sans text-sm text-center">Exquisite Flavor Profile</p>
+            </div>
+            
+            <!-- Collection Item 3 -->
+            <div class="collection-item bg-coffee-medium rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v3">
+                <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                    <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Home Office" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-coffee-cream font-serif text-xl mb-1">Collection V3</h3>
+                <p class="text-coffee-light font-sans text-sm text-center">Crafted for Perfection</p>
+            </div>
+            
+            <!-- Collection Item 4 -->
+            <div class="collection-item bg-coffee-medium rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v4">
+                <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mountain View" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-coffee-cream font-serif text-xl mb-1">Collection V4</h3>
+                <p class="text-coffee-light font-sans text-sm text-center">Smooth & Balanced Taste</p>
+            </div>
+            
+            <!-- Additional items will be cloned via JavaScript for infinite scrolling -->
+        </div>
+    </div>
+    
+    <p class="text-coffee-light font-sans text-sm mt-8 text-center max-w-md">Hover over any collection to pause the marquee and explore our premium coffee offerings.</p>
+    
+    <script src="script.js"></script>
+</body>
+</html>

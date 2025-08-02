@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      // Check if page was refreshed (not navigated to)
+      if (performance.navigation.type === 1) {
+        // Page was refreshed - show loader first
+        sessionStorage.setItem("showLoader", "true");
+        window.location.href = "loader.html";
+      } else if (sessionStorage.getItem("showLoader") === "true") {
+        // Coming from loader - clear the flag
+        sessionStorage.removeItem("showLoader");
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+  </head>
+  <body>
+    <div id="nav">
+      <h3>HERITAGE <sub>ROOM</sub></h3>
+      <button > <a href="blog/blog.html">READ HERE</a></button>
+    </div>
+    <div id="main">
+      <div id="page">
+        <div id="loop">
+          <h1>
+            <b>TRAIN LIKE ROYALTY</b>, <i>BUILD LIKE A LEGEND</i
+            ><span> —</span> WELCOME TO <span><i> THE HERITAGE ROOM.</i></span>
+          </h1>
+          <h1>
+            <b>TRAIN LIKE ROYALTY</b>, <i>BUILD LIKE A LEGEND</i
+            ><span> —</span> WELCOME TO <span><i> THE HERITAGE ROOM.</i></span>
+          </h1>
+          <h1>
+            <b>TRAIN LIKE ROYALTY</b>, <i>BUILD LIKE A LEGEND</i
+            ><span> —</span> WELCOME TO <span><i> THE HERITAGE ROOM.</i></span>
+          </h1>
+        </div>
+        <h3>
+          IRONVERSE IS A MODERN SOCIETY WHERE DISCIPLINE, STYLE,<br />
+          AND LEGACY COLLIDE — BUILT FOR THOSE WHO TRAIN WITH PURPOSE.
+        </h3>
+        <h4>...SCROLL TO READ</h4>
+        <canvas></canvas>
+    </div>
+      <div id="page1">
+        <div id="right-text">
+          <h3>HERITAGE ROOM / CORE ETHOS</h3>
+          <h1>
+            TRAIN WITH PURPOSE<br />
+            LIVE WITH STYLE<br />
+            RISE TOGETHER
+          </h1>
+        </div>
+        <div id="left-text">
+          <h1>
+            BUILD YOUR LEGEND<br />
+            TAKE THE LEAP<br />
+            OWN YOUR FUTURE
+          </h1>
+          <h3>...AND NEVER COMPROMISE YOUR CHARACTER</h3>
+        </div>
+      </div>
+
+      <div id="page2">
+        <div id="text1">
+          <h3>HERITAGE ROOM / TOGETHERNESS</h3>
+          <h1>
+            COME AS YOU ARE<br />
+            STAY FOR THE VIBE<br />
+            GROW TOGETHER
+          </h1>
+        </div>
+        <div id="text2">
+          <p>
+            Leave the labels behind — age, status, background — they don't define us here.<br />
+            No competition, no ego. Just shared space, good energy, and timeless progress.<br />
+            Build something real, together — and dream forward into a better, bolder future.
+          </p>
+        </div>
+      </div>
+            
+      <div id="page3">
+       
+         <div id="text3">
+            <h3> HERITAGE ROOM /  THE FIELD</h3>
+               <h1>
+               THE FIELD IS OURS<br />
+               TO TRAIN, CREATE,<br />
+               AND CONQUER
+               </h1>          
+        </div>
+        <div id="text4">
+            <a href="https://nexthunter.github.io/beautiful-world"><i class="ri-arrow-right-up-line"></i></a>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+      integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"
+      integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

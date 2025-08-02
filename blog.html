@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Heritage Room - Tradition Reimagined</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { 
+              primary: "#000000", 
+              secondary: "#666666",
+              neutral: {
+                dark: '#1A1A1A',
+                medium: '#333333',
+                light: '#CCCCCC',
+                cream: '#F5F5F5'
+              }
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .serif { font-family: 'Playfair Display', serif; }
+      .sans { font-family: 'Inter', sans-serif; }
+      .script { font-family: 'Dancing Script', cursive; }
+      .smooth-scroll { scroll-behavior: smooth; }
+      .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
+      .fade-in.visible { opacity: 1; transform: translateY(0); }
+      .hover-scale { transition: transform 0.3s ease, opacity 0.3s ease; }
+      .hover-scale:hover { transform: scale(1.02); }
+      .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+      .bg-cream { background-color: #FFFFFF; }
+      .bg-deep-green { background-color: #000000; }
+      .bg-navy { background-color: #000000; }
+      .text-gold { color: #000000; }
+      .text-soft-black { color: #000000; }
+      .border-gold { border-color: #000000; }
+      
+      /* Marquee Styles */
+      .marquee-container {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 100%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent, black 10%, black 100%, transparent 100%);
+      }
+      
+      .marquee-content {
+        display: flex;
+        animation: scroll 30s linear infinite;
+        width: max-content;
+      }
+      
+      .marquee-container:hover .marquee-content {
+        animation-play-state: paused;
+      }
+      
+      .collection-item {
+        flex: 0 0 auto;
+        background-color: #000000;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 280px;
+        margin: 0 1rem;
+      }
+      
+      .collection-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+      
+      .image-container {
+        overflow: hidden;
+        border-radius: 0.375rem;
+        height: 12rem;
+        width: 100%;
+      }
+      
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .collection-item:hover .image-container img {
+        transform: scale(1.1);
+      }
+      
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .collection-item {
+          width: 240px;
+          margin: 0 0.75rem;
+        }
+        
+        .image-container {
+          height: 10rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .collection-item {
+          width: 200px;
+          margin: 0 0.5rem;
+        }
+        
+        .image-container {
+          height: 8rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white text-soft-black smooth-scroll">
+    <!-- Hero Section -->
+    <section
+      class="min-h-screen flex items-center justify-center relative overflow-hidden"
+      style="background-image: url('./hrbg.jpg'); background-size: cover; background-position: center;"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-10"></div>
+      <div class="relative z-10 text-center max-w-4xl mx-auto px-8">
+        <div class="fade-in">
+          <h1
+            class="serif text-6xl md:text-8xl font-bold text-white mb-6 text-shadow"
+          >
+            The Heritage Room
+          </h1>
+          <div class="w-24 h-0.5 bg-white mx-auto mb-6"></div>
+          <p
+            class="serif text-2xl md:text-3xl font-light text-white opacity-90 mb-8"
+          >
+            Tradition Reimagined
+          </p>
+          <p
+            class="sans text-lg text-white opacity-75 max-w-2xl mx-auto leading-relaxed"
+          >
+            Where timeless elegance meets contemporary spirit. A curated
+            collection of stories, style, and substance for the discerning
+            modern individual.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Manifesto Section -->
+    <section class="py-24 px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="fade-in">
+            <h2
+              class="serif text-5xl font-bold text-soft-black mb-8 leading-tight"
+            >
+              Style is not about following trends, it's about understanding
+              yourself.
+            </h2>
+            <div class="w-16 h-0.5 bg-primary mb-8"></div>
+            <p
+              class="sans text-lg text-soft-black opacity-80 leading-relaxed mb-6"
+            >
+              We believe in the power of quiet confidence. In pieces that
+              whisper rather than shout. In the kind of elegance that transcends
+              seasons and speaks to something deeper than fashion.
+            </p>
+            <p
+              class="sans text-lg text-soft-black opacity-80 leading-relaxed mb-6"
+            >
+              Our manifesto is simple: honor the past, embrace the present, and
+              create a future where authenticity reigns supreme. This is fashion
+              with purpose, style with substance.
+            </p>
+            <p class="script text-2xl text-gold">
+              — The Heritage Room Collective
+            </p>
+          </div>
+          <div class="fade-in">
+            <img
+              src="./boy1.jpg"
+              alt="Editorial Portrait"
+              class="w-full h-auto object-cover hover-scale rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Editorial -->
+    <section class="py-24 bg-black text-white">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="serif text-4xl font-bold text-white mb-4">
+            Featured Editorial
+          </h2>
+          <div class="w-16 h-0.5 bg-white mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="fade-in">
+            <img
+            src="./boy2.jpg"
+            alt="Featured Editorial"
+              class="w-full h-auto object-cover hover-scale rounded-lg shadow-lg"
+            />
+          </div>
+          <div class="fade-in">
+            <div class="max-w-lg">
+              <span
+                class="sans text-sm uppercase tracking-wider text-white font-medium bg-primary px-3 py-1 rounded-sm inline-block"
+                >Featured Story</span
+              >
+              <h3
+                class="serif text-4xl font-bold text-white mt-4 mb-6 leading-tight"
+              >
+                The Art of Understated Luxury
+              </h3>
+              <p
+                class="sans text-lg text-white opacity-80 leading-relaxed mb-8"
+              >
+                In a world of fast fashion and fleeting trends, we explore the
+                enduring appeal of pieces that stand the test of time. From the
+                perfect trench coat to the ideal cashmere sweater, discover how
+                to build a wardrobe that speaks volumes through its quiet
+                sophistication.
+              </p>
+              <p
+                class="sans text-base text-white opacity-70 leading-relaxed mb-8"
+              >
+                This season, we delve into the archives of iconic fashion houses
+                and uncover the stories behind the pieces that defined
+                generations. Learn how to incorporate these timeless elements
+                into your modern wardrobe with confidence and authenticity.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center sans text-base font-medium text-white hover:text-gold transition-colors duration-300"
+              >
+                Read Full Story
+                <i
+                  class="ri-arrow-right-line ml-2 w-4 h-4 flex items-center justify-center"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-24 px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="serif text-4xl font-bold text-soft-black mb-4">
+            Inspiration Board
+          </h2>
+          <div class="w-16 h-0.5 bg-primary mx-auto mb-6"></div>
+          <p class="sans text-lg text-soft-black opacity-70 max-w-2xl mx-auto">
+            A curated collection of moments, moods, and musings that inspire our
+            aesthetic philosophy.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div class="fade-in hover-scale">
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50"
+              alt="Vintage Fashion"
+              class="w-full h-64 object-cover rounded-lg shadow-md grayscale"
+            />
+          </div>
+          <div class="fade-in hover-scale">
+            <div
+              class="bg-white p-8 h-64 flex items-center justify-center rounded-lg shadow-md"
+            >
+              <blockquote
+                class="serif text-xl text-center text-soft-black leading-relaxed"
+              >
+                "Elegance is the only beauty that never fades."
+                <cite class="sans text-sm text-gold block mt-4"
+                  >— Audrey Hepburn</cite
+                >
+              </blockquote>
+            </div>
+          </div>
+          <div class="fade-in hover-scale">
+            <img
+              src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50"
+              alt="Architecture"
+              class="w-full h-64 object-cover rounded-lg shadow-md grayscale"
+            />
+          </div>
+          <div class="fade-in hover-scale">
+            <img
+              src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50"
+              alt="Accessories"
+              class="w-full h-64 object-cover rounded-lg shadow-md grayscale"
+            />
+          </div>
+          <div class="fade-in hover-scale">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50"
+              alt="Runway"
+              class="w-full h-64 object-cover rounded-lg shadow-md grayscale"
+            />
+          </div>
+          <div class="fade-in hover-scale">
+            <div
+              class="bg-deep-green p-8 h-64 flex items-center justify-center rounded-lg shadow-md"
+            >
+              <blockquote
+                class="serif text-xl text-center text-white leading-relaxed"
+              >
+                "Fashion fades, but style is eternal."
+                <cite class="sans text-sm text-gold block mt-4"
+                  >— Yves Saint Laurent</cite
+                >
+              </blockquote>
+            </div>
+          </div>
+          <div class="fade-in hover-scale">
+            <img
+              src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50"
+              alt="Interior"
+              class="w-full h-64 object-cover rounded-lg shadow-md grayscale"
+            />
+          </div>
+          <div class="fade-in hover-scale">
+            <img
+              src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50"
+              alt="Portrait"
+              class="w-full h-64 object-cover rounded-lg shadow-md grayscale"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Premium Collection Marquee -->
+    <section class="py-24 px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="serif text-4xl font-bold text-soft-black mb-4">
+            Heritage Collection
+          </h2>
+          <div class="w-16 h-0.5 bg-primary mx-auto mb-6"></div>
+          <p class="sans text-lg text-soft-black opacity-70 max-w-2xl mx-auto">
+            Curated pieces that embody timeless elegance and old-world sophistication. Each item tells a story of craftsmanship and heritage.
+          </p>
+        </div>
+        
+        <!-- Marquee Container -->
+        <div class="marquee-container w-full max-w-6xl mx-auto overflow-hidden relative">
+          <!-- Marquee Content -->
+          <div class="marquee-content flex">
+            <!-- Collection Item 1 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v1">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Classic Tailored Suit" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">The Savile Row</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Timeless Tailoring</p>
+            </div>
+            
+            <!-- Collection Item 2 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v2">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Luxury Cashmere" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Cashmere Dreams</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Luxury Knitwear</p>
+            </div>
+            
+            <!-- Collection Item 3 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v3">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Vintage Leather" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Leather Legacy</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Artisan Craftsmanship</p>
+            </div>
+            
+            <!-- Collection Item 4 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v4">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Silk Accessories" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Silk & Grace</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Refined Accessories</p>
+            </div>
+            
+            <!-- Collection Item 5 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v5">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Luxury Watch" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Time & Tradition</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Luxury Timepieces</p>
+            </div>
+            
+            <!-- Collection Item 6 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v6">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Classic Trench Coat" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">The Trench</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Iconic Outerwear</p>
+            </div>
+            
+            <!-- Collection Item 7 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v7">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Luxury Shoes" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Oxford Dreams</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Handcrafted Footwear</p>
+            </div>
+            
+            <!-- Collection Item 8 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v8">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Wool Scarves" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Winter Wool</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Premium Scarves</p>
+            </div>
+            
+            <!-- Collection Item 9 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v9">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Luxury Handbag" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Leather Luxe</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Artisan Bags</p>
+            </div>
+            
+            <!-- Collection Item 10 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v10">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Silk Scarf" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Silk Elegance</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Refined Scarves</p>
+            </div>
+            
+            <!-- Collection Item 11 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v11">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Cashmere Sweater" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">Cashmere Comfort</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Luxury Sweaters</p>
+            </div>
+            
+            <!-- Collection Item 12 -->
+            <div class="collection-item bg-neutral-dark rounded-lg shadow-lg p-4 mx-4 flex flex-col items-center transition-transform duration-300 hover:scale-105" data-id="v12">
+              <div class="image-container h-48 w-64 overflow-hidden rounded-lg mb-3">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80&sat=-100&bri=0&con=50" alt="Classic Blazer" class="w-full h-full object-cover grayscale">
+              </div>
+              <h3 class="text-neutral-cream font-serif text-xl mb-1">The Blazer</h3>
+              <p class="text-neutral-light font-sans text-sm text-center">Timeless Jackets</p>
+            </div>
+            
+            <!-- Additional items will be cloned via JavaScript for infinite scrolling -->
+        </div>
+        
+        <p class="text-neutral-light font-sans text-sm mt-8 text-center max-w-md mx-auto">
+          Hover over any piece to pause the marquee and explore our heritage collection of timeless fashion.
+        </p>
+      </div>
+    </section>
+    <!-- Inspiration Grid -->
+   
+    <!-- Newsletter Section -->
+    <section class="py-24 px-8 bg-black text-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="fade-in">
+          <h2 class="serif text-4xl font-bold text-white mb-6">
+            Join The Circle
+          </h2>
+          <div class="w-16 h-0.5 bg-white mx-auto mb-8"></div>
+          <p
+            class="sans text-lg text-white opacity-70 mb-12 max-w-2xl mx-auto leading-relaxed"
+          >
+            Become part of an exclusive community that values quality over
+            quantity, substance over spectacle. Receive curated insights, style
+            stories, and early access to our editorial content.
+          </p>
+          <div class="max-w-md mx-auto">
+            <div class="flex gap-4">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                class="flex-1 px-6 py-4 border border-gray-200 rounded-button sans text-base focus:outline-none focus:border-primary transition-colors duration-300"
+              />
+              <button
+                type="button"
+                class="px-8 py-4 bg-primary text-white sans font-medium rounded-button hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap !rounded-button"
+              >
+                Subscribe
+              </button>
+            </div>
+            <p class="sans text-sm text-white opacity-50 mt-4">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-16 px-8 bg-white border-t border-black border-opacity-30">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <div class="text-center md:text-left">
+            <h3 class="serif text-2xl font-bold text-soft-black mb-4">
+              The Heritage Room
+            </h3>
+            <p class="sans text-sm text-soft-black opacity-70 leading-relaxed">
+              Curating timeless style for the modern connoisseur.
+            </p>
+          </div>
+          <div class="text-center">
+            <h4
+              class="sans text-sm uppercase tracking-wider text-soft-black font-medium mb-4"
+            >
+              Connect
+            </h4>
+            <div class="flex justify-center space-x-6">
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center text-soft-black hover:text-primary transition-colors duration-300"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center text-soft-black hover:text-primary transition-colors duration-300"
+              >
+                <i class="ri-pinterest-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center text-soft-black hover:text-primary transition-colors duration-300"
+              >
+                <i class="ri-twitter-line"></i>
+              </a>
+            </div>
+          </div>
+          <div class="text-center md:text-right">
+            <h4
+              class="sans text-sm uppercase tracking-wider text-soft-black font-medium mb-4"
+            >
+              Editorial
+            </h4>
+            <div class="space-y-2">
+              <a
+                href="#"
+                class="block sans text-sm text-soft-black opacity-70 hover:text-primary transition-colors duration-300"
+                >Style Stories</a
+              >
+              <a
+                href="#"
+                class="block sans text-sm text-soft-black opacity-70 hover:text-primary transition-colors duration-300"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block sans text-sm text-soft-black opacity-70 hover:text-primary transition-colors duration-300"
+                >About</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="text-center pt-8 border-t border-gold border-opacity-20">
+          <p class="sans text-sm text-soft-black opacity-50">
+            © 2025 The Heritage Room. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script id="scroll-animations">
+      document.addEventListener("DOMContentLoaded", function () {
+        try {
+          const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          };
+          
+          const observer = new IntersectionObserver(function (entries) {
+            entries.forEach((entry) => {
+              try {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                }
+              } catch (error) {
+                console.error('Error in intersection observer:', error);
+              }
+            });
+          }, observerOptions);
+          
+          const fadeElements = document.querySelectorAll(".fade-in");
+          if (fadeElements.length > 0) {
+            fadeElements.forEach((el) => {
+              if (el) {
+                observer.observe(el);
+              }
+            });
+          }
+        } catch (error) {
+          console.error('Error initializing scroll animations:', error);
+        }
+      });
+    </script>
+    <script id="newsletter-form">
+      document.addEventListener("DOMContentLoaded", function () {
+        try {
+          const form = document.querySelector('button[type="button"]');
+          const input = document.querySelector('input[type="email"]');
+          
+          if (form && input) {
+            form.addEventListener("click", function () {
+              try {
+                const email = input.value.trim();
+                if (email && email.includes("@")) {
+                  alert("Thank you for joining The Heritage Room community!");
+                  input.value = "";
+                } else {
+                  alert("Please enter a valid email address.");
+                }
+              } catch (error) {
+                console.error('Error handling newsletter submission:', error);
+                alert("An error occurred. Please try again.");
+              }
+            });
+            
+            input.addEventListener("keypress", function (e) {
+              try {
+                if (e.key === "Enter") {
+                  form.click();
+                }
+              } catch (error) {
+                console.error('Error handling newsletter keypress:', error);
+              }
+            });
+          } else {
+            console.warn('Newsletter form elements not found');
+          }
+        } catch (error) {
+          console.error('Error initializing newsletter form:', error);
+        }
+      });
+    </script>
+    
+    <script id="marquee-functionality">
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get the marquee elements
+        const marqueeContent = document.querySelector('.marquee-content');
+        const marqueeContainer = document.querySelector('.marquee-container');
+        const collectionItems = document.querySelectorAll('.collection-item');
+        
+        // Check if elements exist before proceeding
+        if (!marqueeContent || !marqueeContainer || collectionItems.length === 0) {
+          console.warn('Marquee elements not found, skipping marquee initialization');
+          return;
+        }
+        
+        // Function to duplicate items for infinite scrolling
+        function duplicateItems() {
+          // Clone all collection items
+          collectionItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            marqueeContent.appendChild(clone);
+          });
+          
+          // Calculate and adjust animation properties
+          adjustAnimation();
+        }
+        
+        // Function to adjust animation based on content width
+        function adjustAnimation() {
+          // Check if elements still exist
+          if (!marqueeContent || !marqueeContainer) {
+            return;
+          }
+          
+          // Get the total width of all original items
+          const contentWidth = marqueeContent.offsetWidth;
+          const containerWidth = marqueeContainer.offsetWidth;
+          
+          // Validate widths
+          if (contentWidth === 0 || containerWidth === 0) {
+            console.warn('Invalid content or container width, skipping animation adjustment');
+            return;
+          }
+          
+          // Calculate animation duration based on content width
+          // Larger content = slower animation to maintain consistent speed
+          const baseDuration = 2; // seconds
+          const calculatedDuration = (contentWidth / 500) * baseDuration;
+          const finalDuration = Math.max(calculatedDuration, 15); // Minimum 15 seconds
+          
+          // Update the animation duration
+          marqueeContent.style.animationDuration = `${finalDuration}s`;
+          
+          // Update the keyframes end position
+          // We want to move exactly half the content width for seamless looping
+          const itemsWidth = contentWidth / 2;
+          updateKeyframes(itemsWidth);
+        }
+        
+        // Function to update the keyframes for the scroll animation
+        function updateKeyframes(distance) {
+          // Validate distance parameter
+          if (typeof distance !== 'number' || distance <= 0) {
+            console.warn('Invalid distance parameter for keyframes update');
+            return;
+          }
+          
+          try {
+            // Create a stylesheet for our dynamic keyframes
+            const styleSheet = document.createElement('style');
+            styleSheet.id = 'marquee-keyframes';
+            
+            // Define the keyframes with calculated distance
+            const keyframes = `
+              @keyframes scroll {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-${distance}px);
+                }
+              }
+            `;
+            
+            styleSheet.textContent = keyframes;
+            
+            // Remove any existing keyframes style and add the new one
+            const existingStyle = document.getElementById('marquee-keyframes');
+            if (existingStyle) {
+              existingStyle.remove();
+            }
+            
+            document.head.appendChild(styleSheet);
+          } catch (error) {
+            console.error('Error updating keyframes:', error);
+          }
+        }
+        
+        // Initialize the marquee
+        duplicateItems();
+        
+        // Handle window resize for responsive behavior
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            adjustAnimation();
+          }, 250); // Debounce resize events
+        });
+        
+        // Add hover effect for individual items
+        document.querySelectorAll('.collection-item').forEach(item => {
+          if (item) {
+            item.addEventListener('mouseenter', function() {
+              try {
+                // Add a subtle highlight effect
+                this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.3)';
+              } catch (error) {
+                console.error('Error applying hover effect:', error);
+              }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+              try {
+                // Reset to original shadow
+                this.style.boxShadow = '';
+              } catch (error) {
+                console.error('Error removing hover effect:', error);
+              }
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
